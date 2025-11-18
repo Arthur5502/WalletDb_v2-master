@@ -2,19 +2,17 @@ from typing import List, Tuple
 from decimal import Decimal, InvalidOperation
 import os
 import logging
-
 from sqlalchemy.exc import SQLAlchemyError, IntegrityError
 from api.persistence.repositories.carteira_repository import CarteiraRepository
 from api.services.coinbase_service import CoinbaseService
 from api.models.carteira_models import (
-    Carteira, CarteiraCriada, SaldosCarteira, SaldoMoeda, 
+    Carteira, CarteiraCriada, SaldosCarteira, SaldoMoeda,
     DepositoRequest, SaqueRequest, OperacaoResponse,
     ConversaoRequest, ConversaoResponse,
     TransferenciaRequest, TransferenciaResponse
 )
 
 logger = logging.getLogger(__name__)
-
 
 class CarteiraService:
     """
