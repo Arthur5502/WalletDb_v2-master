@@ -2,6 +2,6 @@ fastapi
 uvicorn[standard]
 pydantic
 sqlalchemy
-mysql-connector-python
+psycopg2-binary
 python-dotenv
 httpx

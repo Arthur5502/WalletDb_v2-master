@@ -17,14 +17,14 @@ def get_database_url() -> str:
     user = os.getenv("DB_USER")
     password = os.getenv("DB_PASSWORD")
     host = os.getenv("DB_HOST", "localhost")
-    port = os.getenv("DB_PORT", "3306")
+    port = os.getenv("DB_PORT", "5432")
     db = os.getenv("DB_NAME")
 
     if not all([user, password, db]):
         raise RuntimeError("Variáveis de ambiente do banco não configuradas corretamente.")
 
-    # usamos mysql+mysqlconnector, mas continua tudo SQL puro
-    return f"mysql+mysqlconnector://{user}:{password}@{host}:{port}/{db}"
+    # usamos postgresql+psycopg2, mas continua tudo SQL puro
+    return f"postgresql+psycopg2://{user}:{password}@{host}:{port}/{db}"
 
 
 DATABASE_URL = get_database_url()
