@@ -13,7 +13,7 @@ na disciplina Projeto Banco de Dados:
 A carteira permite:
 
 - Criar carteiras (com chave pública e chave privada)
-- Ver saldos por moeda (BTC, ETH, SOL, USD)
+- Ver saldos por moeda (BTC, ETH, SOL, USD, BRL, USDT)
 - Fazer **depósitos**
 - Fazer **saques** (com taxa e validação da chave privada)
 - Fazer **conversão entre moedas** (usando cotação da Coinbase)
