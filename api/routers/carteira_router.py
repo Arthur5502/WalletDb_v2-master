@@ -1,6 +1,5 @@
 from fastapi import APIRouter, HTTPException, Depends
 from typing import List
-
 from api.services.carteira_service import CarteiraService
 from api.persistence.repositories.carteira_repository import CarteiraRepository
 from api.models.carteira_models import (
@@ -12,11 +11,9 @@ from api.models.carteira_models import (
 
 router = APIRouter(prefix="/carteiras", tags=["carteiras"])
 
-
 def get_carteira_service() -> CarteiraService:
     repo = CarteiraRepository()
     return CarteiraService(repo)
-
 
 @router.post("", response_model=CarteiraCriada, status_code=201)
 def criar_carteira(
@@ -26,7 +23,6 @@ def criar_carteira(
         return service.criar_carteira()
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
-
 
 @router.get("", response_model=List[Carteira])
 def listar_carteiras(service: CarteiraService = Depends(get_carteira_service)):
