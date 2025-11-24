@@ -1,30 +1,11 @@
 from decimal import Decimal
 import httpx
 
-
 class CoinbaseService:
-    """
-    Cliente para API pública da Coinbase para obter cotações.
-    URL base: https://api.coinbase.com/v2/prices/{MOEDA_ORIGEM}-{MOEDA_DESTINO}/spot
-    """
-    
     BASE_URL = "https://api.coinbase.com/v2/prices"
     
     @staticmethod
     async def obter_cotacao(moeda_origem: str, moeda_destino: str) -> Decimal:
-        """
-        Obtém a cotação spot de uma moeda para outra.
-        
-        Args:
-            moeda_origem: Código da moeda de origem (ex: BTC, ETH, SOL, USD, BRL)
-            moeda_destino: Código da moeda de destino (ex: BTC, ETH, SOL, USD, BRL)
-        
-        Returns:
-            Cotação como Decimal
-        
-        Raises:
-            ValueError: Se não conseguir obter a cotação
-        """
         url = f"{CoinbaseService.BASE_URL}/{moeda_origem}-{moeda_destino}/spot"
         
         try:
@@ -34,7 +15,6 @@ class CoinbaseService:
                 
                 data = response.json()
                 
-                # Estrutura esperada: {"data": {"base": "BTC", "currency": "USD", "amount": "50000.00"}}
                 if "data" in data and "amount" in data["data"]:
                     cotacao = Decimal(data["data"]["amount"])
                     return cotacao
