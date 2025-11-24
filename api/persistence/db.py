@@ -35,13 +35,8 @@ engine: Engine = create_engine(
     pool_pre_ping=True,
 )
 
-
 @contextmanager
 def get_connection() -> Connection:
-    """
-    Entrega uma conexão do SQLAlchemy já com transação aberta.
-    Faz commit automático se der tudo certo, rollback se der erro.
-    """
     conn: Connection = engine.connect()
     trans = conn.begin()
     try:
