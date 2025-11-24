@@ -72,7 +72,6 @@ def realizar_deposito(
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
-
 @router.post("/{endereco_carteira}/saques", response_model=OperacaoResponse, status_code=201)
 def realizar_saque(
     endereco_carteira: str,
@@ -86,7 +85,6 @@ def realizar_saque(
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
-
 @router.post("/{endereco_carteira}/conversoes", response_model=ConversaoResponse, status_code=201)
 async def realizar_conversao(
     endereco_carteira: str,
@@ -99,7 +97,6 @@ async def realizar_conversao(
         raise HTTPException(status_code=400, detail=str(e))
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
-
 
 @router.post("/{endereco_origem}/transferencias", response_model=TransferenciaResponse, status_code=201)
 def realizar_transferencia(
