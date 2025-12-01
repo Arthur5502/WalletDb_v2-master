@@ -126,9 +126,3 @@ VALUES
     ('USDT', 'Tether', 'CRYPTO'),
     ('USD', 'Dolar Americano', 'FIAT'),
     ('BRL', 'Real Brasileiro', 'FIAT') ON CONFLICT (codigo) DO NOTHING;
-
--- =========================================================
--- COMANDOS UTILITÁRIOS (Comentados - usar quando necessário)
--- =========================================================
--- Para resetar os IDs das moedas (CUIDADO: remove todos os dados relacionados):
--- TRUNCATE TABLE moeda RESTART IDENTITY CASCADE;
