@@ -58,7 +58,6 @@ def buscar_saldos(
     except ValueError as e:
         raise HTTPException(status_code=404, detail=str(e))
 
-
 @router.post("/{endereco_carteira}/depositos", response_model=OperacaoResponse, status_code=201)
 def realizar_deposito(
     endereco_carteira: str,
